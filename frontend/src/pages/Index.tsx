@@ -7,6 +7,7 @@ import Progress from '@/components/progress/Progress';
 import Payments from '@/components/payments/Payments';
 import Messages from '@/components/messages/Messages';
 import Analytics from '@/components/analytics/Analytics';
+import Settings from '@/components/settings/Settings';
 import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
@@ -48,6 +49,8 @@ const Index: React.FC = () => {
         return <Messages />;
       case 'analytics':
         return <Analytics />;
+      case 'settings':
+        return <Settings />;
       default:
         return <Placeholder section={activeSection} />;
     }
