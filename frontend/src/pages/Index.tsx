@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@/components/layout/Layout';
 import Dashboard from '@/components/dashboard/Dashboard';
 import Students from '@/components/students/Students';
+import CalendarView from '@/components/calendar/CalendarView';
 import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
@@ -25,6 +26,8 @@ const Index: React.FC = () => {
         );
       case 'students':
         return <Students />;
+      case 'calendar':
+        return <CalendarView />;
       default:
         return <Placeholder section={activeSection} />;
     }
