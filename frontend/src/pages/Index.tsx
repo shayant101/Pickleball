@@ -9,7 +9,15 @@ import { useStudents } from '@/hooks/useStudents';
 import { stats, upcomingLessons, recentActivity } from '@/data/mockData';
 
 const Index: React.FC = () => {
-  const { activeSection, navigateTo } = useNavigation();
+  const { 
+    activeSection, 
+    sidebarOpen, 
+    navigationItems, 
+    navigateTo, 
+    openSidebar, 
+    closeSidebar 
+  } = useNavigation();
+  
   const { filteredStudents, openAddStudent } = useStudents();
 
   const renderContent = () => {
@@ -37,6 +45,12 @@ const Index: React.FC = () => {
     <Layout
       filteredStudentsCount={filteredStudents.length}
       upcomingLessonsCount={stats.upcomingLessons}
+      activeSection={activeSection}
+      sidebarOpen={sidebarOpen}
+      navigationItems={navigationItems}
+      onNavigate={navigateTo}
+      onOpenSidebar={openSidebar}
+      onCloseSidebar={closeSidebar}
     >
       {renderContent()}
     </Layout>
