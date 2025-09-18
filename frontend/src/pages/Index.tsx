@@ -6,6 +6,7 @@ import CalendarView from '@/components/calendar/CalendarView';
 import Progress from '@/components/progress/Progress';
 import Payments from '@/components/payments/Payments';
 import Messages from '@/components/messages/Messages';
+import Analytics from '@/components/analytics/Analytics';
 import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
@@ -45,6 +46,8 @@ const Index: React.FC = () => {
         return <Payments />;
       case 'messages':
         return <Messages />;
+      case 'analytics':
+        return <Analytics />;
       default:
         return <Placeholder section={activeSection} />;
     }
