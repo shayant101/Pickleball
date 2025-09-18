@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import Dashboard from '@/components/dashboard/Dashboard';
 import Students from '@/components/students/Students';
 import CalendarView from '@/components/calendar/CalendarView';
+import Progress from '@/components/progress/Progress';
 import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
@@ -36,6 +37,8 @@ const Index: React.FC = () => {
         return <Students />;
       case 'calendar':
         return <CalendarView />;
+      case 'progress':
+        return <Progress />;
       default:
         return <Placeholder section={activeSection} />;
     }
