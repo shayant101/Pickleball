@@ -67,6 +67,14 @@ const ComposeMessageModal: React.FC<ComposeMessageModalProps> = ({ isOpen, onClo
     }
   };
 
+  // Get selected student names for preview
+  const getSelectedStudentNames = () => {
+    return selectedStudents
+      .map(id => students.find(s => s.id === id)?.name)
+      .filter(Boolean)
+      .join(', ');
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -172,7 +180,7 @@ const ComposeMessageModal: React.FC<ComposeMessageModalProps> = ({ isOpen, onClo
               className="resize-none"
             />
             <p className="text-xs text-muted-foreground mt-1">
-              Use {{studentName}}, {{instrument}}, etc. for personalization
+              Use variables like {`{{studentName}}`}, {`{{instrument}}`}, {`{{lessonDate}}`} for personalization
             </p>
           </div>
 
@@ -181,7 +189,8 @@ const ComposeMessageModal: React.FC<ComposeMessageModalProps> = ({ isOpen, onClo
             <div className="bg-gray-50 p-3 rounded-md">
               <h4 className="font-medium text-sm mb-2">Preview</h4>
               <div className="text-sm text-muted-foreground">
-                <p><strong>To:</strong> {selectedStudents.length} student{selectedStudents.length > 1 ? 's' : ''} 
+                <p><strong>To:</strong> {getSelectedStudentNames()}</p>
+                <p><strong>Recipients:</strong> {selectedStudents.length} student{selectedStudents.length > 1 ? 's' : ''} 
                   {includeParents && ' (+ parents)'}</p>
                 <p><strong>Type:</strong> {getMessageTypeLabel(messageType)}</p>
                 {subject && <p><strong>Subject:</strong> {subject}</p>}
