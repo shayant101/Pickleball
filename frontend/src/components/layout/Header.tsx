@@ -6,14 +6,14 @@ import { Badge } from '@/components/ui/badge';
 interface HeaderProps {
   activeSection: string;
   filteredStudentsCount?: number;
-  upcomingLessonsCount: number;
+  upcomingSessionsCount: number;
   onMenuClick: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
   activeSection,
   filteredStudentsCount,
-  upcomingLessonsCount,
+  upcomingSessionsCount,
   onMenuClick
 }) => {
   const getPageDescription = () => {
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
         <div className="flex items-center space-x-4">
           <Badge variant="secondary">
-            {upcomingLessonsCount} sessions today
+            {upcomingSessionsCount} sessions today
           </Badge>
           <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
             C

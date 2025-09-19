@@ -2,11 +2,11 @@ import React from 'react';
 import { Calendar, Users, DollarSign, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Stats, Lesson, Activity } from '@/types';
+import { Stats, Session, Activity } from '@/types';
 
 interface DashboardProps {
   stats: Stats;
-  upcomingLessons: Lesson[];
+  upcomingSessions: Session[];
   recentActivity: Activity[];
   onNavigate: (section: string) => void;
   onAddStudent: () => void;
@@ -14,7 +14,7 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = ({
   stats,
-  upcomingLessons,
+  upcomingSessions,
   recentActivity,
   onNavigate,
   onAddStudent
@@ -58,11 +58,11 @@ const Dashboard: React.FC<DashboardProps> = ({
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Lessons Completed</CardTitle>
+            <CardTitle className="text-sm font-medium">Sessions Completed</CardTitle>
             <BookOpen className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.completedLessons}</div>
+            <div className="text-2xl font-bold">{stats.completedSessions}</div>
             <p className="text-xs text-muted-foreground">+23 this month</p>
           </CardContent>
         </Card>
@@ -70,23 +70,23 @@ const Dashboard: React.FC<DashboardProps> = ({
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Upcoming Lessons */}
+        {/* Upcoming Sessions */}
         <Card>
           <CardHeader>
-            <CardTitle>Upcoming Lessons</CardTitle>
-            <CardDescription>Your next {upcomingLessons.length} scheduled lessons</CardDescription>
+            <CardTitle>Upcoming Sessions</CardTitle>
+            <CardDescription>Your next {upcomingSessions.length} scheduled coaching sessions</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {upcomingLessons.map((lesson) => (
-                <div key={lesson.id} className="flex items-center justify-between p-3 border rounded-lg">
+              {upcomingSessions.map((session) => (
+                <div key={session.id} className="flex items-center justify-between p-3 border rounded-lg">
                   <div>
-                    <p className="font-medium">{lesson.student}</p>
-                    <p className="text-sm text-muted-foreground">{lesson.type}</p>
+                    <p className="font-medium">{session.student}</p>
+                    <p className="text-sm text-muted-foreground">{session.type}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium">{lesson.time}</p>
-                    <p className="text-sm text-muted-foreground">{lesson.date}</p>
+                    <p className="font-medium">{session.time}</p>
+                    <p className="text-sm text-muted-foreground">{session.date}</p>
                   </div>
                 </div>
               ))}
@@ -101,7 +101,7 @@ const Dashboard: React.FC<DashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Latest updates from your coaching business</CardDescription>
+            <CardDescription>Latest updates from your pickleball coaching business</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -128,13 +128,13 @@ const Dashboard: React.FC<DashboardProps> = ({
       <Card>
         <CardHeader>
           <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Common tasks to manage your coaching business</CardDescription>
+          <CardDescription>Common tasks to manage your pickleball coaching business</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Button className="h-20 flex flex-col space-y-2" onClick={() => onNavigate('calendar')}>
               <Calendar className="h-5 w-5" />
-              <span className="text-sm">Schedule Lesson</span>
+              <span className="text-sm">Schedule Session</span>
             </Button>
             <Button className="h-20 flex flex-col space-y-2" variant="outline" onClick={onAddStudent}>
               <Users className="h-5 w-5" />

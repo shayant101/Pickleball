@@ -11,7 +11,7 @@ export const attendanceRecords: AttendanceRecord[] = [
     endTime: '15:00',
     status: 'present',
     arrivalTime: '13:58',
-    notes: 'On time and prepared',
+    notes: 'On time and prepared for singles practice',
     makeupRequired: false
   },
   {
@@ -24,7 +24,7 @@ export const attendanceRecords: AttendanceRecord[] = [
     endTime: '15:00',
     status: 'late',
     arrivalTime: '14:10',
-    notes: 'Traffic delay, stayed 10 minutes extra',
+    notes: 'Traffic delay, stayed 10 minutes extra to complete session',
     makeupRequired: false
   },
   {
@@ -37,7 +37,7 @@ export const attendanceRecords: AttendanceRecord[] = [
     endTime: '16:30',
     status: 'present',
     arrivalTime: '15:25',
-    notes: 'Great lesson, very focused',
+    notes: 'Great doubles strategy session, very focused',
     makeupRequired: false
   },
   {
@@ -49,7 +49,7 @@ export const attendanceRecords: AttendanceRecord[] = [
     startTime: '15:30',
     endTime: '16:30',
     status: 'absent',
-    notes: 'Sick with flu, makeup scheduled',
+    notes: 'Sick with flu, makeup session scheduled',
     makeupRequired: true,
     makeupScheduled: '2024-01-17'
   },
@@ -63,7 +63,7 @@ export const attendanceRecords: AttendanceRecord[] = [
     endTime: '11:00',
     status: 'present',
     arrivalTime: '09:55',
-    notes: 'Always punctual and well-prepared',
+    notes: 'Always punctual and well-prepared for tournament training',
     makeupRequired: false
   }
 ];
@@ -72,7 +72,7 @@ export const attendanceSummaries: AttendanceSummary[] = [
   {
     studentId: 1,
     studentName: 'Emma Johnson',
-    instrument: 'Piano',
+    instrument: 'Singles Play',
     stats: {
       totalLessons: 24,
       attendedLessons: 22,
@@ -91,8 +91,7 @@ export const attendanceSummaries: AttendanceSummary[] = [
   {
     studentId: 2,
     studentName: 'Michael Chen',
-    instrument: 'Guitar',
-    instrument: 'Guitar',
+    instrument: 'Doubles Play',
     stats: {
       totalLessons: 12,
       attendedLessons: 10,
@@ -109,9 +108,9 @@ export const attendanceSummaries: AttendanceSummary[] = [
     }
   },
   {
-    studentId: 3,
+    id: 3,
     studentName: 'Sarah Williams',
-    instrument: 'Voice',
+    instrument: 'Tournament Prep',
     stats: {
       totalLessons: 45,
       attendedLessons: 44,

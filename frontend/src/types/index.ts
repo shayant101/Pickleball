@@ -3,13 +3,13 @@ export interface Student {
   name: string;
   email: string;
   phone: string;
-  instrument: string; // Now represents play style: Singles, Doubles, Tournament Prep, etc.
+  playStyle: string; // Changed from 'instrument' to 'playStyle' for pickleball
   level: string;
   status: 'Active' | 'Inactive';
   joinDate: string;
-  lastLesson: string;
-  nextLesson: string | null;
-  totalLessons: number;
+  lastSession: string; // Changed from 'lastLesson' to 'lastSession'
+  nextSession: string | null; // Changed from 'nextLesson' to 'nextSession'
+  totalSessions: number; // Changed from 'totalLessons' to 'totalSessions'
   parentName: string | null;
   parentEmail: string | null;
   parentPhone: string | null;
@@ -19,7 +19,7 @@ export interface Student {
   avatar: string | null;
 }
 
-export interface Lesson {
+export interface Session { // Changed from 'Lesson' to 'Session'
   id: number;
   student: string;
   time: string;
@@ -39,8 +39,8 @@ export interface Stats {
   monthlyRevenue: number;
   totalStudents: number;
   activeStudents: number;
-  upcomingLessons: number;
-  completedLessons: number;
+  upcomingSessions: number; // Changed from 'upcomingLessons' to 'upcomingSessions'
+  completedSessions: number; // Changed from 'completedLessons' to 'completedSessions'
 }
 
 export interface NavigationItem {

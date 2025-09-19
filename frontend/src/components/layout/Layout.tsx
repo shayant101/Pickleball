@@ -6,7 +6,7 @@ import { NavigationItem } from '@/types';
 interface LayoutProps {
   children: React.ReactNode;
   filteredStudentsCount?: number;
-  upcomingLessonsCount: number;
+  upcomingSessionsCount: number;
   activeSection: string;
   sidebarOpen: boolean;
   navigationItems: NavigationItem[];
@@ -18,7 +18,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ 
   children, 
   filteredStudentsCount, 
-  upcomingLessonsCount,
+  upcomingSessionsCount,
   activeSection,
   sidebarOpen,
   navigationItems,
@@ -53,7 +53,7 @@ const Layout: React.FC<LayoutProps> = ({
         <Header
           activeSection={activeSection}
           filteredStudentsCount={filteredStudentsCount}
-          upcomingLessonsCount={upcomingLessonsCount}
+          upcomingSessionsCount={upcomingSessionsCount}
           onMenuClick={onOpenSidebar}
         />
         <div className="p-4 lg:p-6">

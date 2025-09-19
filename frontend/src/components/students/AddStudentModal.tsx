@@ -40,18 +40,17 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, onClose }) =>
               <Input id="phone" placeholder="(555) 123-4567" />
             </div>
             <div>
-              <Label htmlFor="instrument">Instrument *</Label>
+              <Label htmlFor="playStyle">Play Style *</Label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select instrument" />
+                  <SelectValue placeholder="Select play style" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="piano">Piano</SelectItem>
-                  <SelectItem value="guitar">Guitar</SelectItem>
-                  <SelectItem value="voice">Voice</SelectItem>
-                  <SelectItem value="violin">Violin</SelectItem>
-                  <SelectItem value="drums">Drums</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="singles">Singles Play</SelectItem>
+                  <SelectItem value="doubles">Doubles Play</SelectItem>
+                  <SelectItem value="tournament">Tournament Prep</SelectItem>
+                  <SelectItem value="recreational">Recreational Play</SelectItem>
+                  <SelectItem value="mixed">Singles & Doubles</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -59,7 +58,7 @@ const AddStudentModal: React.FC<AddStudentModalProps> = ({ isOpen, onClose }) =>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="level">Level</Label>
+              <Label htmlFor="level">Skill Level</Label>
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Select level" />

@@ -12,7 +12,7 @@ import AttendanceTracker from '@/components/attendance/AttendanceTracker';
 import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
-import { stats, upcomingLessons, recentActivity } from '@/data/mockData';
+import { stats, upcomingSessions, recentActivity } from '@/data/mockData';
 
 const Index: React.FC = () => {
   const { 
@@ -32,7 +32,7 @@ const Index: React.FC = () => {
         return (
           <Dashboard
             stats={stats}
-            upcomingLessons={upcomingLessons}
+            upcomingSessions={upcomingSessions}
             recentActivity={recentActivity}
             onNavigate={navigateTo}
             onAddStudent={openAddStudent}
@@ -64,7 +64,7 @@ const Index: React.FC = () => {
   return (
     <Layout
       filteredStudentsCount={filteredStudents.length}
-      upcomingLessonsCount={stats.upcomingLessons}
+      upcomingSessionsCount={stats.upcomingSessions}
       activeSection={activeSection}
       sidebarOpen={sidebarOpen}
       navigationItems={navigationItems}

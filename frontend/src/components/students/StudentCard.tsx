@@ -24,7 +24,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onViewDetails }) => 
             </Avatar>
             <div>
               <CardTitle className="text-lg">{student.name}</CardTitle>
-              <CardDescription>{student.instrument} • {student.level}</CardDescription>
+              <CardDescription>{student.playStyle} • {student.level}</CardDescription>
             </div>
           </div>
           <DropdownMenu>
@@ -44,7 +44,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onViewDetails }) => 
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Calendar className="h-4 w-4 mr-2" />
-                Schedule Lesson
+                Schedule Session
               </DropdownMenuItem>
               <DropdownMenuItem className="text-red-600">
                 <Trash2 className="h-4 w-4 mr-2" />
@@ -59,7 +59,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onViewDetails }) => 
           <Badge variant={student.status === 'Active' ? 'default' : 'secondary'}>
             {student.status}
           </Badge>
-          <span className="text-sm text-muted-foreground">{student.totalLessons} lessons</span>
+          <span className="text-sm text-muted-foreground">{student.totalSessions} sessions</span>
         </div>
         
         <div className="space-y-2 text-sm">
@@ -71,10 +71,10 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onViewDetails }) => 
             <Phone className="h-4 w-4 mr-2" />
             {student.phone}
           </div>
-          {student.nextLesson && (
+          {student.nextSession && (
             <div className="flex items-center text-muted-foreground">
               <Calendar className="h-4 w-4 mr-2" />
-              Next: {student.nextLesson}
+              Next: {student.nextSession}
             </div>
           )}
         </div>

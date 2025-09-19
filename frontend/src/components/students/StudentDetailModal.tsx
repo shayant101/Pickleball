@@ -31,7 +31,7 @@ const StudentDetailModal: React.FC<StudentDetailModalProps> = ({
             <div>
               <div>{student.name}</div>
               <div className="text-sm text-muted-foreground font-normal">
-                {student.instrument} • {student.level}
+                {student.playStyle} • {student.level}
               </div>
             </div>
           </DialogTitle>
@@ -73,9 +73,9 @@ const StudentDetailModal: React.FC<StudentDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Lesson Information */}
+          {/* Session Information */}
           <div>
-            <h3 className="font-semibold mb-3">Lesson Information</h3>
+            <h3 className="font-semibold mb-3">Session Information</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
                 <div className="text-sm text-muted-foreground">Status</div>
@@ -84,22 +84,22 @@ const StudentDetailModal: React.FC<StudentDetailModalProps> = ({
                 </Badge>
               </div>
               <div>
-                <div className="text-sm text-muted-foreground">Total Lessons</div>
-                <div className="font-medium">{student.totalLessons}</div>
+                <div className="text-sm text-muted-foreground">Total Sessions</div>
+                <div className="font-medium">{student.totalSessions}</div>
               </div>
               <div>
                 <div className="text-sm text-muted-foreground">Join Date</div>
                 <div className="font-medium">{new Date(student.joinDate).toLocaleDateString()}</div>
               </div>
               <div>
-                <div className="text-sm text-muted-foreground">Last Lesson</div>
-                <div className="font-medium">{new Date(student.lastLesson).toLocaleDateString()}</div>
+                <div className="text-sm text-muted-foreground">Last Session</div>
+                <div className="font-medium">{new Date(student.lastSession).toLocaleDateString()}</div>
               </div>
             </div>
-            {student.nextLesson && (
+            {student.nextSession && (
               <div className="mt-3 p-3 bg-blue-50 rounded-lg">
-                <div className="text-sm text-muted-foreground">Next Lesson</div>
-                <div className="font-medium text-blue-700">{student.nextLesson}</div>
+                <div className="text-sm text-muted-foreground">Next Session</div>
+                <div className="font-medium text-blue-700">{student.nextSession}</div>
               </div>
             )}
           </div>
@@ -129,7 +129,7 @@ const StudentDetailModal: React.FC<StudentDetailModalProps> = ({
           <div className="flex gap-2 pt-4 border-t">
             <Button className="flex-1">
               <Calendar className="h-4 w-4 mr-2" />
-              Schedule Lesson
+              Schedule Session
             </Button>
             <Button variant="outline" className="flex-1">
               <Edit className="h-4 w-4 mr-2" />
