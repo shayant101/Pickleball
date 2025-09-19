@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Calendar, Users, DollarSign, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
