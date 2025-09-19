@@ -7,15 +7,15 @@ export const practiceSessions: PracticeSession[] = [
     studentName: 'Emma Johnson',
     date: '2024-01-24',
     duration: 45,
-    pieces: ['Bach Invention No. 1', 'C Major Scale'],
-    techniques: ['Finger independence', 'Articulation'],
-    goals: ['Master measures 9-16', 'Improve tempo consistency'],
+    pieces: ['Third shot drop drills', 'Backhand cross-court shots'],
+    techniques: ['Soft game', 'Shot placement'],
+    goals: ['Master third shot drop', 'Improve backhand consistency'],
     quality: 4,
-    notes: 'Good focus today. Left hand coordination is improving significantly.',
+    notes: 'Good focus today. Backhand placement is improving significantly.',
     mood: 'motivated',
-    challenges: ['Tempo in measures 12-14', 'Dynamic contrast'],
-    achievements: ['Played measures 1-8 perfectly', 'Better hand coordination'],
-    nextFocus: 'Work on measures 15-20, focus on phrasing'
+    challenges: ['Third shot drop accuracy', 'Net game confidence'],
+    achievements: ['Better shot placement', 'Improved footwork'],
+    nextFocus: 'Work on net game positioning and volleys'
   },
   {
     id: 2,
@@ -23,15 +23,15 @@ export const practiceSessions: PracticeSession[] = [
     studentName: 'Michael Chen',
     date: '2024-01-23',
     duration: 30,
-    pieces: ['Wonderwall - Oasis', 'G-C-D chord progression'],
-    techniques: ['Chord transitions', 'Strumming patterns'],
-    goals: ['Smooth chord changes', 'Learn basic strumming'],
+    pieces: ['Serve practice', 'Doubles positioning drills'],
+    techniques: ['Serve technique', 'Court positioning'],
+    goals: ['Consistent serve', 'Better doubles play'],
     quality: 3,
-    notes: 'Struggled with chord transitions but showing improvement.',
+    notes: 'Struggled with serve consistency but showing improvement in positioning.',
     mood: 'neutral',
-    challenges: ['G to C chord change', 'Consistent strumming rhythm'],
-    achievements: ['Cleaner chord sounds', 'Better finger positioning'],
-    nextFocus: 'Practice chord changes with metronome'
+    challenges: ['Serve accuracy', 'Partner communication'],
+    achievements: ['Better court awareness', 'Improved grip technique'],
+    nextFocus: 'Practice serves with target zones'
   },
   {
     id: 3,
@@ -39,15 +39,15 @@ export const practiceSessions: PracticeSession[] = [
     studentName: 'Sarah Williams',
     date: '2024-01-22',
     duration: 60,
-    pieces: ['Ave Maria - Schubert', 'Vocal warm-ups'],
-    techniques: ['Breath control', 'Vibrato', 'High notes'],
-    goals: ['Perfect breath support', 'Consistent vibrato'],
+    pieces: ['Tournament drills', 'Power shot practice'],
+    techniques: ['Shot selection', 'Mental game', 'Power shots'],
+    goals: ['Tournament preparation', 'Consistent power shots'],
     quality: 5,
-    notes: 'Excellent practice session. Voice is really developing beautifully.',
+    notes: 'Excellent practice session. Tournament readiness is really developing well.',
     mood: 'excited',
-    challenges: ['High B-flat in bridge', 'Sustaining long phrases'],
-    achievements: ['Beautiful vibrato control', 'Extended breath capacity'],
-    nextFocus: 'Work on dramatic interpretation and stage presence'
+    challenges: ['Power shot consistency', 'Pressure situations'],
+    achievements: ['Great shot selection', 'Strong mental focus'],
+    nextFocus: 'Work on pressure situation training and match simulation'
   }
 ];
 
@@ -67,8 +67,8 @@ export const practiceGoals: PracticeGoal[] = [
   {
     id: 2,
     studentId: 2,
-    title: 'Master Basic Chords',
-    description: 'Practice chord transitions for 20 minutes daily',
+    title: 'Master Basic Serves',
+    description: 'Practice serve technique for 20 minutes daily',
     targetMinutes: 140, // 20 min × 7 days
     currentMinutes: 90,
     startDate: '2024-01-20',
@@ -79,8 +79,8 @@ export const practiceGoals: PracticeGoal[] = [
   {
     id: 3,
     studentId: 3,
-    title: 'Audition Preparation',
-    description: 'Intensive practice for college auditions - 1 hour daily',
+    title: 'Tournament Preparation',
+    description: 'Intensive practice for regional tournament - 1 hour daily',
     targetMinutes: 420, // 60 min × 7 days
     currentMinutes: 380,
     startDate: '2024-01-01',
@@ -97,9 +97,9 @@ export const practiceStats: { [studentId: number]: PracticeStats } = {
     sessionsThisWeek: 5,
     streakDays: 12,
     favoriteTime: '4:00 PM',
-    mostPracticedPiece: 'Bach Invention No. 1',
-    improvementAreas: ['Tempo consistency', 'Dynamic expression'],
-    achievements: ['Completed first Bach piece', 'Improved sight-reading']
+    mostPracticedPiece: 'Third shot drop drills',
+    improvementAreas: ['Net game', 'Shot consistency'],
+    achievements: ['Improved backhand', 'Better court positioning']
   },
   2: {
     totalMinutes: 480,
@@ -107,9 +107,9 @@ export const practiceStats: { [studentId: number]: PracticeStats } = {
     sessionsThisWeek: 3,
     streakDays: 3,
     favoriteTime: '7:00 PM',
-    mostPracticedPiece: 'Wonderwall',
-    improvementAreas: ['Chord transitions', 'Rhythm consistency'],
-    achievements: ['First complete song', 'Clean chord sounds']
+    mostPracticedPiece: 'Serve practice',
+    improvementAreas: ['Serve consistency', 'Doubles strategy'],
+    achievements: ['Basic serve technique', 'Court awareness']
   },
   3: {
     totalMinutes: 2100,
@@ -117,9 +117,9 @@ export const practiceStats: { [studentId: number]: PracticeStats } = {
     sessionsThisWeek: 6,
     streakDays: 18,
     favoriteTime: '10:00 AM',
-    mostPracticedPiece: 'Ave Maria',
-    improvementAreas: ['High note control', 'Stage presence'],
-    achievements: ['Extended vocal range', 'Professional vibrato']
+    mostPracticedPiece: 'Tournament drills',
+    improvementAreas: ['Power shots', 'Mental game'],
+    achievements: ['Advanced strategy', 'Tournament readiness']
   }
 };
 
@@ -130,10 +130,10 @@ export const practiceAssignments: PracticeAssignment[] = [
     studentName: 'Emma Johnson',
     assignedDate: '2024-01-20',
     dueDate: '2024-01-27',
-    pieces: ['Bach Invention No. 1 - measures 9-20', 'C Major scale hands together'],
-    techniques: ['Legato touch', 'Hand coordination'],
+    pieces: ['Third shot drop drills', 'Backhand cross-court practice'],
+    techniques: ['Soft game', 'Shot placement'],
     minDuration: 30,
-    instructions: 'Practice slowly at first, focus on clean articulation. Use metronome starting at 60 BPM.',
+    instructions: 'Practice third shot drops slowly at first, focus on arc and placement. Use target zones.',
     status: 'in-progress'
   },
   {
@@ -142,10 +142,10 @@ export const practiceAssignments: PracticeAssignment[] = [
     studentName: 'Michael Chen',
     assignedDate: '2024-01-22',
     dueDate: '2024-01-29',
-    pieces: ['G-C-D chord progression', 'Wonderwall chorus'],
-    techniques: ['Chord transitions', 'Basic strumming'],
+    pieces: ['Serve practice', 'Doubles positioning drills'],
+    techniques: ['Serve technique', 'Court positioning'],
     minDuration: 20,
-    instructions: 'Practice chord changes without strumming first. Then add simple down-strums.',
+    instructions: 'Practice serves to different zones. Work on doubles positioning without the ball first.',
     status: 'assigned'
   },
   {
@@ -154,13 +154,13 @@ export const practiceAssignments: PracticeAssignment[] = [
     studentName: 'Sarah Williams',
     assignedDate: '2024-01-19',
     dueDate: '2024-01-26',
-    pieces: ['Ave Maria - complete piece', 'Vocal exercises for high notes'],
-    techniques: ['Breath support', 'Vibrato control'],
+    pieces: ['Tournament simulation', 'Power shot drills'],
+    techniques: ['Mental game', 'Shot selection'],
     minDuration: 45,
-    instructions: 'Focus on breath support in long phrases. Practice high notes with lip trills first.',
+    instructions: 'Focus on tournament scenarios. Practice power shots with proper form and follow-through.',
     status: 'completed',
     completedDate: '2024-01-25',
-    studentNotes: 'Felt much more confident with the high notes after practicing with lip trills!'
+    studentNotes: 'Felt much more confident in pressure situations after the tournament simulation!'
   }
 ];
 
@@ -169,8 +169,8 @@ export const practiceInsights: PracticeInsight[] = [
     id: 1,
     studentId: 1,
     type: 'improvement',
-    title: 'Significant Progress in Bach Piece',
-    description: 'Emma has shown remarkable improvement in her Bach Invention. Her finger independence has increased dramatically.',
+    title: 'Significant Progress in Third Shot Drop',
+    description: 'Emma has shown remarkable improvement in her third shot drop technique. Her court positioning has improved dramatically.',
     date: '2024-01-24',
     actionRequired: false
   },
@@ -187,8 +187,8 @@ export const practiceInsights: PracticeInsight[] = [
     id: 3,
     studentId: 3,
     type: 'achievement',
-    title: 'Ready for Advanced Repertoire',
-    description: 'Sarah has mastered her current pieces and is ready to tackle more challenging vocal works.',
+    title: 'Ready for Tournament Play',
+    description: 'Sarah has mastered her current skills and is ready for competitive tournament play.',
     date: '2024-01-22',
     actionRequired: false
   },
@@ -196,8 +196,8 @@ export const practiceInsights: PracticeInsight[] = [
     id: 4,
     studentId: 1,
     type: 'suggestion',
-    title: 'Consider Adding Music Theory',
-    description: 'Emma would benefit from formal music theory lessons to complement her practical skills.',
+    title: 'Consider Adding Strategy Sessions',
+    description: 'Emma would benefit from formal strategy sessions to complement her technical skills.',
     date: '2024-01-21',
     actionRequired: false
   }

@@ -18,67 +18,67 @@ export const userProfile: UserProfile = {
   lastName: 'Mitchell',
   email: 'sarah.mitchell@email.com',
   phone: '(555) 123-4567',
-  bio: 'Passionate music educator with over 10 years of experience teaching piano, voice, and music theory. I believe in nurturing each student\'s unique musical journey.',
-  title: 'Professional Music Instructor',
+  bio: 'Passionate pickleball coach with over 10 years of experience teaching players of all skill levels. I believe in developing both technical skills and strategic thinking.',
+  title: 'Professional Pickleball Coach',
   experience: 10,
-  specializations: ['Piano', 'Voice', 'Music Theory', 'Composition'],
-  certifications: ['Royal Conservatory of Music - Grade 10 Piano', 'Certified Music Teacher', 'Suzuki Method Certified'],
+  specializations: ['Singles Strategy', 'Doubles Play', 'Tournament Preparation', 'Beginner Fundamentals'],
+  certifications: ['USA Pickleball Certified Coach', 'PPR Certified Professional', 'First Aid/CPR Certified'],
   languages: ['English', 'Spanish', 'French'],
   timezone: 'America/New_York',
-  website: 'https://sarahmitchellmusic.com',
+  website: 'https://sarahmitchellpickleball.com',
   socialMedia: {
-    facebook: 'https://facebook.com/sarahmitchellmusic',
-    instagram: '@sarahmitchellmusic',
-    youtube: 'https://youtube.com/sarahmitchellmusic'
+    facebook: 'https://facebook.com/sarahmitchellpickleball',
+    instagram: '@sarahmitchellpickleball',
+    youtube: 'https://youtube.com/sarahmitchellpickleball'
   }
 };
 
 export const businessSettings: BusinessSettings = {
-  businessName: 'Sarah Mitchell Music Studio',
+  businessName: 'Sarah Mitchell Pickleball Academy',
   businessType: 'individual',
   address: {
-    street: '123 Music Lane',
-    city: 'Harmony Hills',
+    street: '123 Court Lane',
+    city: 'Pickleball Hills',
     state: 'CA',
     zipCode: '90210',
     country: 'United States'
   },
   contactInfo: {
     phone: '(555) 123-4567',
-    email: 'info@sarahmitchellmusic.com',
-    website: 'https://sarahmitchellmusic.com'
+    email: 'info@sarahmitchellpickleball.com',
+    website: 'https://sarahmitchellpickleball.com'
   },
   taxInfo: {
     taxId: '12-3456789',
     businessLicense: 'BL-2024-001'
   },
   policies: {
-    cancellationPolicy: '24-hour cancellation notice required. Late cancellations will be charged 50% of lesson fee.',
-    makeupPolicy: 'Makeup lessons available for cancellations with 24+ hours notice, subject to schedule availability.',
-    paymentPolicy: 'Payment due at time of lesson or monthly in advance. Late payments subject to $10 fee after 7 days.',
+    cancellationPolicy: '24-hour cancellation notice required. Late cancellations will be charged 50% of session fee.',
+    makeupPolicy: 'Makeup sessions available for cancellations with 24+ hours notice, subject to schedule availability.',
+    paymentPolicy: 'Payment due at time of session or monthly in advance. Late payments subject to $10 fee after 7 days.',
     latePolicyMinutes: 15,
-    refundPolicy: 'Refunds available for unused lessons with 30-day notice. Processing fee may apply.'
+    refundPolicy: 'Refunds available for unused sessions with 30-day notice. Processing fee may apply.'
   },
   rates: {
     defaultHourlyRate: 75,
     currency: 'USD',
     packageDiscounts: [
-      { id: 1, name: '4-Lesson Package', lessonsCount: 4, discountPercentage: 5 },
-      { id: 2, name: '8-Lesson Package', lessonsCount: 8, discountPercentage: 10 },
-      { id: 3, name: '12-Lesson Package', lessonsCount: 12, discountPercentage: 15 }
+      { id: 1, name: '4-Session Package', lessonsCount: 4, discountPercentage: 5 },
+      { id: 2, name: '8-Session Package', lessonsCount: 8, discountPercentage: 10 },
+      { id: 3, name: '12-Session Package', lessonsCount: 12, discountPercentage: 15 }
     ]
   }
 };
 
 export const teachingPreferences: TeachingPreferences = {
-  instruments: ['Piano', 'Voice', 'Music Theory'],
+  instruments: ['Singles Play', 'Doubles Strategy', 'Tournament Prep', 'Recreational Play'],
   levels: ['Beginner', 'Intermediate', 'Advanced'],
-  ageGroups: ['Children (5-12)', 'Teens (13-17)', 'Adults (18+)', 'Seniors (65+)'],
-  lessonTypes: ['Individual', 'Group', 'Online', 'In-Person'],
+  ageGroups: ['Youth (8-17)', 'Adults (18-54)', 'Seniors (55+)'],
+  lessonTypes: ['Individual', 'Group', 'Clinic', 'Tournament Prep'],
   maxStudentsPerDay: 8,
   preferredLessonDuration: 60,
   travelRadius: 15,
-  teachingLocations: ['Studio', 'Student Home', 'Online'],
+  teachingLocations: ['Indoor Courts', 'Outdoor Courts', 'Private Courts'],
   availability: {
     monday: {
       available: true,

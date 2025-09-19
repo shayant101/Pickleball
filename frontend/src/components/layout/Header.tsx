@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({
   const getPageDescription = () => {
     switch (activeSection) {
       case 'dashboard':
-        return 'Welcome back! Here\'s what\'s happening with your coaching business.';
+        return 'Welcome back! Here\'s what\'s happening with your pickleball coaching business.';
       case 'students':
         return `Manage your ${filteredStudentsCount || 0} students`;
       default:
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
         <div className="flex items-center space-x-4">
           <Badge variant="secondary">
-            {upcomingLessonsCount} lessons today
+            {upcomingLessonsCount} sessions today
           </Badge>
           <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
             C

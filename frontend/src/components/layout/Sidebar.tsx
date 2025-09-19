@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center justify-between p-4 border-b">
           <div>
             <h1 className="text-xl lg:text-2xl font-bold text-gray-900">CoachPro</h1>
-            <p className="text-sm text-gray-500 mt-1 hidden lg:block">Music Coaching Platform</p>
+            <p className="text-sm text-gray-500 mt-1 hidden lg:block">Pickleball Coaching Platform</p>
           </div>
           {isMobile && (
             <Button variant="ghost" size="sm" onClick={onClose}>

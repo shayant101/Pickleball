@@ -15,7 +15,7 @@ export const students: Student[] = [
     name: 'Emma Johnson',
     email: 'emma.johnson@email.com',
     phone: '(555) 123-4567',
-    instrument: 'Piano',
+    instrument: 'Singles Play',
     level: 'Intermediate',
     status: 'Active',
     joinDate: '2024-01-15',
@@ -26,8 +26,8 @@ export const students: Student[] = [
     parentEmail: 'sarah.johnson@email.com',
     parentPhone: '(555) 123-4567',
     address: '123 Main St, Anytown, ST 12345',
-    notes: 'Very dedicated student. Working on Bach Inventions.',
-    goals: ['Master Bach Invention No. 1', 'Improve sight-reading', 'Learn basic music theory'],
+    notes: 'Very dedicated player. Working on backhand consistency and net play.',
+    goals: ['Improve backhand accuracy', 'Master third shot drop', 'Develop net game strategy'],
     avatar: null
   },
   {
@@ -35,7 +35,7 @@ export const students: Student[] = [
     name: 'Michael Chen',
     email: 'michael.chen@email.com',
     phone: '(555) 234-5678',
-    instrument: 'Guitar',
+    instrument: 'Doubles Play',
     level: 'Beginner',
     status: 'Active',
     joinDate: '2024-02-01',
@@ -46,8 +46,8 @@ export const students: Student[] = [
     parentEmail: 'lisa.chen@email.com',
     parentPhone: '(555) 234-5678',
     address: '456 Oak Ave, Anytown, ST 12345',
-    notes: 'Enthusiastic beginner. Loves rock music.',
-    goals: ['Learn basic chords', 'Play first song', 'Develop finger strength'],
+    notes: 'Enthusiastic beginner. Loves the strategic aspects of doubles play.',
+    goals: ['Learn basic serve technique', 'Understand court positioning', 'Develop consistent dinking'],
     avatar: null
   },
   {
@@ -55,7 +55,7 @@ export const students: Student[] = [
     name: 'Sarah Williams',
     email: 'sarah.williams@email.com',
     phone: '(555) 345-6789',
-    instrument: 'Voice',
+    instrument: 'Tournament Prep',
     level: 'Advanced',
     status: 'Active',
     joinDate: '2023-09-10',
@@ -66,8 +66,8 @@ export const students: Student[] = [
     parentEmail: null,
     parentPhone: null,
     address: '789 Pine St, Anytown, ST 12345',
-    notes: 'Preparing for college auditions. Excellent range.',
-    goals: ['Perfect audition pieces', 'Expand repertoire', 'Improve stage presence'],
+    notes: 'Preparing for regional tournaments. Excellent court awareness and shot selection.',
+    goals: ['Perfect tournament strategy', 'Improve power shots', 'Master advanced spin techniques'],
     avatar: null
   },
   {
@@ -75,7 +75,7 @@ export const students: Student[] = [
     name: 'David Brown',
     email: 'david.brown@email.com',
     phone: '(555) 456-7890',
-    instrument: 'Piano',
+    instrument: 'Recreational Play',
     level: 'Beginner',
     status: 'Inactive',
     joinDate: '2023-11-20',
@@ -86,8 +86,8 @@ export const students: Student[] = [
     parentEmail: 'mark.brown@email.com',
     parentPhone: '(555) 456-7890',
     address: '321 Elm St, Anytown, ST 12345',
-    notes: 'Taking a break due to school commitments.',
-    goals: ['Learn basic scales', 'Play simple songs'],
+    notes: 'Taking a break due to work commitments.',
+    goals: ['Learn basic rules', 'Develop consistent serve'],
     avatar: null
   },
   {
@@ -95,7 +95,7 @@ export const students: Student[] = [
     name: 'Jessica Martinez',
     email: 'jessica.martinez@email.com',
     phone: '(555) 567-8901',
-    instrument: 'Violin',
+    instrument: 'Singles & Doubles',
     level: 'Intermediate',
     status: 'Active',
     joinDate: '2024-01-05',
@@ -106,22 +106,22 @@ export const students: Student[] = [
     parentEmail: 'maria.martinez@email.com',
     parentPhone: '(555) 567-8901',
     address: '654 Maple Dr, Anytown, ST 12345',
-    notes: 'Great technique. Working on vibrato.',
-    goals: ['Master vibrato technique', 'Learn advanced pieces', 'Prepare for recital'],
+    notes: 'Great footwork. Working on shot placement and strategy.',
+    goals: ['Improve shot placement', 'Learn advanced serves', 'Prepare for league play'],
     avatar: null
   }
 ];
 
 export const upcomingLessons: Lesson[] = [
-  { id: 1, student: 'Emma Johnson', time: '2:00 PM', date: 'Today', type: 'Piano Lesson' },
-  { id: 2, student: 'Michael Chen', time: '3:30 PM', date: 'Today', type: 'Guitar Lesson' },
-  { id: 3, student: 'Sarah Williams', time: '10:00 AM', date: 'Tomorrow', type: 'Voice Lesson' },
-  { id: 4, student: 'David Brown', time: '4:00 PM', date: 'Tomorrow', type: 'Piano Lesson' }
+  { id: 1, student: 'Emma Johnson', time: '2:00 PM', date: 'Today', type: 'Singles Coaching' },
+  { id: 2, student: 'Michael Chen', time: '3:30 PM', date: 'Today', type: 'Doubles Strategy' },
+  { id: 3, student: 'Sarah Williams', time: '10:00 AM', date: 'Tomorrow', type: 'Tournament Prep' },
+  { id: 4, student: 'David Brown', time: '4:00 PM', date: 'Tomorrow', type: 'Fundamentals' }
 ];
 
 export const recentActivity: Activity[] = [
   { id: 1, action: 'New booking', student: 'Emma Johnson', time: '2 hours ago' },
   { id: 2, action: 'Payment received', student: 'Michael Chen', time: '4 hours ago' },
-  { id: 3, action: 'Lesson completed', student: 'Sarah Williams', time: '1 day ago' },
+  { id: 3, action: 'Session completed', student: 'Sarah Williams', time: '1 day ago' },
   { id: 4, action: 'Progress updated', student: 'David Brown', time: '2 days ago' }
 ];

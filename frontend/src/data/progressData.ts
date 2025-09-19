@@ -7,13 +7,13 @@ export const lessonNotes: LessonNote[] = [
     studentName: 'Emma Johnson',
     date: '2024-01-20',
     duration: 60,
-    topics: ['Bach Invention No. 1', 'Scales', 'Sight-reading'],
-    achievements: ['Mastered first 8 bars of Bach', 'Improved left hand coordination'],
-    challenges: ['Tempo consistency in measures 9-12', 'Dynamic contrast'],
-    homework: ['Practice Bach mm. 9-16 slowly', 'C major scale hands together', 'Sight-read 3 new pieces'],
-    nextFocus: 'Complete Bach Invention No. 1, work on phrasing',
+    topics: ['Backhand technique', 'Third shot drop', 'Net positioning'],
+    achievements: ['Improved backhand consistency', 'Better court positioning'],
+    challenges: ['Third shot drop accuracy', 'Net game confidence'],
+    homework: ['Practice backhand cross-court shots', 'Work on soft game at net', 'Watch positioning videos'],
+    nextFocus: 'Focus on third shot drop placement and net game strategy',
     rating: 4,
-    notes: 'Emma showed great improvement this week. Her technique is developing well, but needs to work on musical expression.'
+    notes: 'Emma showed great improvement in backhand consistency. Her court positioning is getting much better.'
   },
   {
     id: 2,
@@ -21,13 +21,13 @@ export const lessonNotes: LessonNote[] = [
     studentName: 'Michael Chen',
     date: '2024-01-22',
     duration: 60,
-    topics: ['Basic chords', 'Strumming patterns', 'Song: Wonderwall'],
-    achievements: ['Learned G, C, D chords', 'Basic down-up strumming'],
-    challenges: ['Chord transitions', 'Finger positioning'],
-    homework: ['Practice chord changes G-C-D', 'Work on clean chord sounds', 'Listen to Wonderwall'],
-    nextFocus: 'Smooth chord transitions, add Em chord',
+    topics: ['Basic serve', 'Court positioning', 'Doubles strategy'],
+    achievements: ['Learned proper serve grip', 'Understanding of doubles positioning'],
+    challenges: ['Serve consistency', 'Communication with partner'],
+    homework: ['Practice serves daily', 'Study doubles positioning', 'Work on calling shots'],
+    nextFocus: 'Improve serve consistency and doubles communication',
     rating: 3,
-    notes: 'Michael is enthusiastic but needs more practice time. Finger strength is improving.'
+    notes: 'Michael is enthusiastic but needs more practice time. His understanding of strategy is improving.'
   },
   {
     id: 3,
@@ -35,13 +35,13 @@ export const lessonNotes: LessonNote[] = [
     studentName: 'Sarah Williams',
     date: '2024-01-19',
     duration: 60,
-    topics: ['Vocal warm-ups', 'Breath support', 'Art song preparation'],
-    achievements: ['Extended breath control', 'Better vowel placement'],
-    challenges: ['High notes in bridge section', 'Vibrato control'],
-    homework: ['Daily breathing exercises', 'Practice high notes with lip trills', 'Memorize verse 2'],
-    nextFocus: 'Audition piece polish, stage presence',
+    topics: ['Tournament strategy', 'Power shots', 'Mental game'],
+    achievements: ['Excellent shot selection', 'Strong mental focus'],
+    challenges: ['Power shot consistency', 'Pressure situations'],
+    homework: ['Practice power shots', 'Mental game exercises', 'Tournament simulation drills'],
+    nextFocus: 'Tournament preparation and pressure situation training',
     rating: 5,
-    notes: 'Excellent progress on audition pieces. Sarah is ready for advanced repertoire.'
+    notes: 'Excellent session. Sarah is ready for advanced tournament play. Her game sense is exceptional.'
   }
 ];
 
@@ -49,8 +49,8 @@ export const studentGoals: StudentGoal[] = [
   {
     id: 1,
     studentId: 1,
-    title: 'Master Bach Invention No. 1',
-    description: 'Learn and perform Bach Invention No. 1 in C major with proper articulation and tempo',
+    title: 'Master Third Shot Drop',
+    description: 'Develop consistent third shot drop technique for better court positioning',
     targetDate: '2024-03-01',
     status: 'in-progress',
     progress: 75,
@@ -59,8 +59,8 @@ export const studentGoals: StudentGoal[] = [
   {
     id: 2,
     studentId: 1,
-    title: 'Improve sight-reading',
-    description: 'Be able to sight-read Grade 3 level pieces fluently',
+    title: 'Improve Net Game',
+    description: 'Develop confidence and skill at the net for better offensive play',
     targetDate: '2024-04-15',
     status: 'in-progress',
     progress: 40,
@@ -69,8 +69,8 @@ export const studentGoals: StudentGoal[] = [
   {
     id: 3,
     studentId: 2,
-    title: 'Learn 5 basic songs',
-    description: 'Master 5 popular songs using basic open chords',
+    title: 'Consistent Serve',
+    description: 'Develop reliable serve technique for both power and placement',
     targetDate: '2024-02-28',
     status: 'in-progress',
     progress: 60,
@@ -79,8 +79,8 @@ export const studentGoals: StudentGoal[] = [
   {
     id: 4,
     studentId: 3,
-    title: 'College audition preparation',
-    description: 'Prepare 4 contrasting pieces for college music program auditions',
+    title: 'Tournament Preparation',
+    description: 'Prepare for regional tournament with advanced strategy and mental game',
     targetDate: '2024-02-15',
     status: 'in-progress',
     progress: 85,
@@ -94,9 +94,9 @@ export const practiceLog: PracticeLog[] = [
     studentId: 1,
     date: '2024-01-21',
     duration: 45,
-    pieces: ['Bach Invention No. 1', 'C Major Scale'],
-    focus: ['Left hand coordination', 'Tempo consistency'],
-    notes: 'Focused on slow practice. Getting better at measures 9-12.',
+    pieces: ['Third shot drop drills', 'Backhand cross-court'],
+    focus: ['Shot placement', 'Consistency'],
+    notes: 'Focused on soft game. Getting better at third shot drop placement.',
     quality: 4
   },
   {
@@ -104,9 +104,9 @@ export const practiceLog: PracticeLog[] = [
     studentId: 2,
     date: '2024-01-23',
     duration: 30,
-    pieces: ['Chord transitions', 'Wonderwall'],
-    focus: ['G-C-D changes', 'Strumming rhythm'],
-    notes: 'Chord changes are getting smoother. Need more work on rhythm.',
+    pieces: ['Serve practice', 'Doubles positioning'],
+    focus: ['Serve consistency', 'Court awareness'],
+    notes: 'Serve is getting more consistent. Need more work on doubles positioning.',
     quality: 3
   }
 ];
@@ -118,12 +118,12 @@ export const skillAssessments: SkillAssessment[] = [
     date: '2024-01-01',
     technique: 7,
     rhythm: 8,
-    pitch: 9,
-    expression: 6,
-    sightReading: 5,
-    theory: 7,
+    pitch: 9, // Now represents shot accuracy
+    expression: 6, // Now represents game strategy
+    sightReading: 5, // Now represents court awareness
+    theory: 7, // Now represents rules knowledge
     overall: 7,
-    notes: 'Strong technical foundation. Needs work on musical expression and sight-reading.'
+    notes: 'Strong technical foundation. Needs work on strategy and court awareness.'
   },
   {
     id: 2,

@@ -3,7 +3,7 @@ export interface Student {
   name: string;
   email: string;
   phone: string;
-  instrument: string;
+  instrument: string; // Now represents play style: Singles, Doubles, Tournament Prep, etc.
   level: string;
   status: 'Active' | 'Inactive';
   joinDate: string;
