@@ -8,6 +8,7 @@ import Payments from '@/components/payments/Payments';
 import Messages from '@/components/messages/Messages';
 import Analytics from '@/components/analytics/Analytics';
 import Settings from '@/components/settings/Settings';
+import AttendanceTracker from '@/components/attendance/AttendanceTracker';
 import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
@@ -41,8 +42,12 @@ const Index: React.FC = () => {
         return <Students />;
       case 'calendar':
         return <CalendarView />;
+      case 'attendance':
+        return <AttendanceTracker />;
       case 'progress':
         return <Progress />;
+      case 'practice':
+        return <Placeholder section="Practice Tracking" />;
       case 'payments':
         return <Payments />;
       case 'messages':
