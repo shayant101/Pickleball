@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react';
 import { Calendar, Users, DollarSign, BarChart3, Settings, MessageSquare, BookOpen, Home, ClipboardCheck, Target } from 'lucide-react';
 import { NavigationItem } from '@/types';
@@ -10,7 +8,7 @@ export const navigationItems: NavigationItem[] = [
   { id: 'students', label: 'Students', icon: Users },
   { id: 'attendance', label: 'Attendance', icon: ClipboardCheck },
   { id: 'progress', label: 'Progress', icon: BookOpen },
-  { id: 'practice', label: 'Practice', icon: Target },
+  { id: 'practice', label: 'Practice', icon: Target }, // Changed from Music to Target (more appropriate for sports practice)
   { id: 'payments', label: 'Payments', icon: DollarSign },
   { id: 'messages', label: 'Messages', icon: MessageSquare },
   { id: 'analytics', label: 'Analytics', icon: BarChart3 },
