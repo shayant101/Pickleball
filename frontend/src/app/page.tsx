@@ -1,20 +1,29 @@
 'use client'
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Layout from '@/components/layout/Layout';
 import Dashboard from '@/components/dashboard/Dashboard';
-import Students from '@/components/students/Students';
-import CalendarView from '@/components/calendar/CalendarView';
-import Progress from '@/components/progress/Progress';
-import Payments from '@/components/payments/Payments';
-import Messages from '@/components/messages/Messages';
-import Analytics from '@/components/analytics/Analytics';
-import Settings from '@/components/settings/Settings';
-import AttendanceTracker from '@/components/attendance/AttendanceTracker';
-import Placeholder from '@/components/common/Placeholder';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useStudents } from '@/hooks/useStudents';
 import { stats, upcomingSessions, recentActivity } from '@/data/mockData';
+
+// Dynamic imports for better performance - only load when needed
+const Students = React.lazy(() => import('@/components/students/Students'));
+const CalendarView = React.lazy(() => import('@/components/calendar/CalendarView'));
+const Progress = React.lazy(() => import('@/components/progress/Progress'));
+const Payments = React.lazy(() => import('@/components/payments/Payments'));
+const Messages = React.lazy(() => import('@/components/messages/Messages'));
+const Analytics = React.lazy(() => import('@/components/analytics/Analytics'));
+const Settings = React.lazy(() => import('@/components/settings/Settings'));
+const AttendanceTracker = React.lazy(() => import('@/components/attendance/AttendanceTracker'));
+const Placeholder = React.lazy(() => import('@/components/common/Placeholder'));
+
+// Loading component
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center min-h-[400px]">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+  </div>
+);
 
 export default function HomePage() {
   const { 
@@ -31,6 +40,7 @@ export default function HomePage() {
   const renderContent = () => {
     switch (activeSection) {
       case 'dashboard':
+        // Dashboard loads immediately (no lazy loading for landing page)
         return (
           <Dashboard
             stats={stats}
@@ -41,25 +51,65 @@ export default function HomePage() {
           />
         );
       case 'students':
-        return <Students />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Students />
+          </Suspense>
+        );
       case 'calendar':
-        return <CalendarView />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <CalendarView />
+          </Suspense>
+        );
       case 'attendance':
-        return <AttendanceTracker />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <AttendanceTracker />
+          </Suspense>
+        );
       case 'progress':
-        return <Progress />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Progress />
+          </Suspense>
+        );
       case 'practice':
-        return <Placeholder section="Practice Tracking" />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Placeholder section="Practice Tracking" />
+          </Suspense>
+        );
       case 'payments':
-        return <Payments />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Payments />
+          </Suspense>
+        );
       case 'messages':
-        return <Messages />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Messages />
+          </Suspense>
+        );
       case 'analytics':
-        return <Analytics />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Analytics />
+          </Suspense>
+        );
       case 'settings':
-        return <Settings />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Settings />
+          </Suspense>
+        );
       default:
-        return <Placeholder section={activeSection} />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Placeholder section={activeSection} />
+          </Suspense>
+        );
     }
   };
 
