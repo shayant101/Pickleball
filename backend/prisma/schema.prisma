@@ -32,8 +32,8 @@ model Student {
   id             Int       @id @default(autoincrement())
   firstName      String
   lastName       String
-  email          String    @unique
-  phone          String
+  email          String?   @unique
+  phone          String?
   playStyle      String
   level          String
   status         String    @default("Active")
@@ -41,7 +41,7 @@ model Student {
   lastSession    DateTime?
   nextSession    DateTime?
   totalSessions  Int       @default(0)
-  address        String
+  address        String?
   notes          String?
   goals          String    // JSON string to store array of goals
   avatar         String?

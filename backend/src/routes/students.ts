@@ -103,11 +103,11 @@ router.post('/', async (req: Request, res: Response) => {
       guardians
     } = req.body;
 
-    // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !playStyle || !level || !address) {
+    // Validate required fields (only the ones marked with * in the frontend)
+    if (!firstName || !lastName || !playStyle) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields: firstName, lastName, email, phone, playStyle, level, address'
+        error: 'Missing required fields: firstName, lastName, playStyle'
       });
     }
 

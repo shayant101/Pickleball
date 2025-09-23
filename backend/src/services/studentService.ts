@@ -5,12 +5,12 @@ const prisma = new PrismaClient();
 export interface CreateStudentData {
   firstName: string;
   lastName: string;
-  email: string;
-  phone: string;
+  email?: string;
+  phone?: string;
   playStyle: string;
   level: string;
   status?: string;
-  address: string;
+  address?: string;
   notes?: string;
   goals?: string[];
   avatar?: string;
