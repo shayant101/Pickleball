@@ -36,9 +36,14 @@ export interface CreateStudentData {
   phone: string;
   playStyle: string;
   level: string;
+  status: 'Active' | 'Inactive';
   address: string;
   notes?: string;
   goals?: string[];
+  joinDate: string;
+  lastSession: string | null;
+  nextSession: string | null;
+  totalSessions: number;
   guardians?: Omit<Guardian, 'id' | 'studentId'>[];
 }
 

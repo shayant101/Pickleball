@@ -20,7 +20,8 @@ const Students: React.FC = () => {
     openStudentDetail,
     closeStudentDetail,
     openAddStudent,
-    closeAddStudent
+    closeAddStudent,
+    refetch
   } = useStudents();
 
   return (
@@ -97,6 +98,7 @@ const Students: React.FC = () => {
       <AddStudentModal
         isOpen={showAddStudent}
         onClose={closeAddStudent}
+        onStudentAdded={refetch}
       />
     </div>
   );
