@@ -1,7 +1,14 @@
 import React from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useAuth } from '@/contexts/AuthContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 interface HeaderProps {
   activeSection: string;
@@ -16,6 +23,7 @@ const Header: React.FC<HeaderProps> = ({
   upcomingSessionsCount,
   onMenuClick
 }) => {
+  const { user, logout } = useAuth();
   const getPageDescription = () => {
     switch (activeSection) {
       case 'dashboard':
@@ -52,9 +60,29 @@ const Header: React.FC<HeaderProps> = ({
           <Badge variant="secondary">
             {upcomingSessionsCount} sessions today
           </Badge>
-          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
-            C
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                  {user?.name?.charAt(0) || 'C'}
+                </div>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56" align="end" forceMount>
+              <div className="flex items-center justify-start gap-2 p-2">
+                <div className="flex flex-col space-y-1 leading-none">
+                  <p className="font-medium">{user?.name}</p>
+                  <p className="w-[200px] truncate text-sm text-muted-foreground">
+                    {user?.email}
+                  </p>
+                </div>
+              </div>
+              <DropdownMenuItem onClick={logout} className="cursor-pointer">
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Log out</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>
