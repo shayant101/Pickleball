@@ -1,0 +1,402 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  // Relationships
+  sessions Session[]
+  lessonNotes LessonNote[]
+  studentGoals StudentGoal[]
+  skillAssessments SkillAssessment[]
+  conversationParticipants ConversationParticipant[]
+  messages Message[]
+  messageTemplates MessageTemplate[]
+  settings Settings[]
+}
+
+model Student {
+  id             Int       @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  email          String    @unique
+  phone          String
+  playStyle      String
+  level          String
+  status         String    @default("Active")
+  joinDate       DateTime  @default(now())
+  lastSession    DateTime?
+  nextSession    DateTime?
+  totalSessions  Int       @default(0)
+  address        String
+  notes          String?
+  goals          String    // JSON string to store array of goals
+  avatar         String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  
+  // Relationships
+  guardians         Guardian[]
+  sessions          Session[]
+  attendanceRecords AttendanceRecord[]
+  lessonNotes       LessonNote[]
+  studentGoals      StudentGoal[]
+  practiceLog       PracticeLog[]
+  skillAssessments  SkillAssessment[]
+  payments          Payment[]
+  invoices          Invoice[]
+  conversationParticipants ConversationParticipant[]
+  messages          Message[]
+}
+
+model Guardian {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String
+  phone     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relationships
+  studentId Int
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@unique([studentId, email]) // Prevent duplicate guardians for same student
+}
+
+model Session {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  startTime   DateTime
+  endTime     DateTime
+  status      String   @default("scheduled") // scheduled, completed, cancelled, no-show
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  coachId     Int
+  coach       User     @relation(fields: [coachId], references: [id], onDelete: Cascade)
+  
+  // Relationships
+  attendanceRecords AttendanceRecord[]
+  lessonNotes       LessonNote[]
+  skillAssessments  SkillAssessment[]
+  invoiceItems      InvoiceItem[]
+  
+  @@index([startTime, endTime])
+  @@index([studentId])
+  @@index([coachId])
+}
+
+// Attendance tracking model
+model AttendanceRecord {
+  id          Int      @id @default(autoincrement())
+  status      String   // "present", "absent", "late"
+  arrivalTime DateTime?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  sessionId   Int
+  session     Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@unique([sessionId, studentId]) // One attendance record per student per session
+  @@index([studentId])
+  @@index([sessionId])
+}
+
+// Lesson notes model
+model LessonNote {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  tags        String?  // JSON array of tags
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  sessionId   Int?
+  session     Session? @relation(fields: [sessionId], references: [id], onDelete: SetNull)
+  coachId     Int
+  coach       User     @relation(fields: [coachId], references: [id], onDelete: Cascade)
+  
+  @@index([studentId])
+  @@index([sessionId])
+  @@index([coachId])
+}
+
+// Student goals model
+model StudentGoal {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  category    String   // "technique", "strategy", "fitness", "mental", "other"
+  priority    String   @default("medium") // "low", "medium", "high"
+  status      String   @default("active") // "active", "completed", "paused", "cancelled"
+  targetDate  DateTime?
+  completedAt DateTime?
+  progress    Int      @default(0) // 0-100 percentage
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  coachId     Int
+  coach       User     @relation(fields: [coachId], references: [id], onDelete: Cascade)
+  
+  @@index([studentId])
+  @@index([coachId])
+  @@index([status])
+}
+
+// Practice log model
+model PracticeLog {
+  id          Int      @id @default(autoincrement())
+  date        DateTime
+  duration    Int      // Duration in minutes
+  type        String   // "solo", "group", "match", "drill"
+  focus       String?  // What they focused on
+  notes       String?
+  rating      Int?     // 1-5 self-rating
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@index([studentId])
+  @@index([date])
+}
+
+// Skill assessment model
+model SkillAssessment {
+  id          Int      @id @default(autoincrement())
+  skillName   String   // "serve", "backhand", "forehand", "net_play", "strategy", etc.
+  category    String   // "technical", "tactical", "physical", "mental"
+  rating      Int      // 1-10 rating scale
+  notes       String?
+  assessedAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  coachId     Int
+  coach       User     @relation(fields: [coachId], references: [id], onDelete: Cascade)
+  sessionId   Int?
+  session     Session? @relation(fields: [sessionId], references: [id], onDelete: SetNull)
+  
+  @@index([studentId])
+  @@index([coachId])
+  @@index([sessionId])
+  @@index([skillName])
+}
+
+// Payment and Billing Models
+model Payment {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  currency    String   @default("USD")
+  method      String   // "card", "cash", "check", "bank_transfer"
+  status      String   @default("pending") // "pending", "completed", "failed", "refunded"
+  description String?
+  reference   String?  // External payment reference
+  processedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  invoiceId   Int?
+  invoice     Invoice? @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
+  
+  @@index([studentId])
+  @@index([invoiceId])
+  @@index([status])
+}
+
+model Invoice {
+  id          Int      @id @default(autoincrement())
+  invoiceNumber String @unique
+  status      String   @default("draft") // "draft", "sent", "paid", "overdue", "cancelled"
+  subtotal    Float
+  tax         Float    @default(0)
+  total       Float
+  dueDate     DateTime
+  issuedAt    DateTime @default(now())
+  paidAt      DateTime?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  items       InvoiceItem[]
+  payments    Payment[]
+  
+  @@index([studentId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+model InvoiceItem {
+  id          Int     @id @default(autoincrement())
+  description String
+  quantity    Int     @default(1)
+  unitPrice   Float
+  total       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  invoiceId   Int
+  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  sessionId   Int?
+  session     Session? @relation(fields: [sessionId], references: [id], onDelete: SetNull)
+  
+  @@index([invoiceId])
+  @@index([sessionId])
+}
+
+// Messaging System Models
+model Conversation {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  type        String   @default("direct") // "direct", "group"
+  status      String   @default("active") // "active", "archived", "deleted"
+  lastMessageAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  participants ConversationParticipant[]
+  messages     Message[]
+  
+  @@index([status])
+  @@index([lastMessageAt])
+}
+
+model ConversationParticipant {
+  id            Int      @id @default(autoincrement())
+  role          String   @default("member") // "member", "admin"
+  joinedAt      DateTime @default(now())
+  lastReadAt    DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relationships
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  userId         Int?
+  user           User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  studentId      Int?
+  student        Student?     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@unique([conversationId, userId])
+  @@unique([conversationId, studentId])
+  @@index([conversationId])
+  @@index([userId])
+  @@index([studentId])
+}
+
+model Message {
+  id          Int      @id @default(autoincrement())
+  content     String
+  type        String   @default("text") // "text", "image", "file", "system"
+  status      String   @default("sent") // "sent", "delivered", "read"
+  editedAt    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       Int?
+  sender         User?        @relation(fields: [senderId], references: [id], onDelete: SetNull)
+  studentSenderId Int?
+  studentSender   Student?     @relation(fields: [studentSenderId], references: [id], onDelete: SetNull)
+  
+  @@index([conversationId])
+  @@index([senderId])
+  @@index([studentSenderId])
+  @@index([createdAt])
+}
+
+model MessageTemplate {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  category    String   // "reminder", "welcome", "follow_up", "general"
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  createdById Int
+  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  
+  @@index([category])
+  @@index([isActive])
+  @@index([createdById])
+}
+
+// Analytics Model
+model AnalyticsSnapshot {
+  id          Int      @id @default(autoincrement())
+  date        DateTime
+  metric      String   // "revenue", "sessions", "students", "attendance_rate", etc.
+  value       Float
+  metadata    String?  // JSON string for additional data
+  createdAt   DateTime @default(now())
+  
+  @@unique([date, metric])
+  @@index([date])
+  @@index([metric])
+}
+
+// Settings Models
+model Settings {
+  id          Int      @id @default(autoincrement())
+  category    String   // "profile", "business", "teaching", "notifications", "privacy", "security", "system"
+  key         String
+  value       String   // JSON string for complex values
+  type        String   @default("string") // "string", "number", "boolean", "json"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, category, key])
+  @@index([userId])
+  @@index([category])
+}

@@ -1,12 +1,10 @@
 # Dependencies
 node_modules/
-*/node_modules/
+.pnpm-store/
 
-# Build outputs
+# Build output
 dist/
 build/
-out/
-.next/
 
 # Environment variables
 .env
@@ -17,9 +15,7 @@ out/
 
 # Database
 *.db
-*.sqlite
-*.sqlite3
-prisma/dev.db
+*.db-journal
 
 # Logs
 logs
@@ -79,28 +75,23 @@ jspm_packages/
 
 # Next.js build output
 .next
-out
 
 # Nuxt.js build / generate output
 .nuxt
 dist
 
-# Gatsby files
-.cache/
-public
-
 # Storybook build outputs
 .out
 .storybook-out
-storybook-static
 
 # Temporary folders
 tmp/
 temp/
 
 # Editor directories and files
-.vscode/
-.idea/
+.vscode/*
+!.vscode/extensions.json
+.idea
 *.swp
 *.swo
 *~
@@ -113,10 +104,3 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Prisma
-prisma/migrations/
-
-# Capacitor
-ios/
-android/

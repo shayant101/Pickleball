@@ -19,11 +19,10 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onViewDetails }) => 
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-3">
             <Avatar>
-              <AvatarImage src={student.avatar} />
-              <AvatarFallback>{student.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+              <AvatarFallback>{student.firstName[0]}{student.lastName[0]}</AvatarFallback>
             </Avatar>
             <div>
-              <CardTitle className="text-lg">{student.name}</CardTitle>
+              <CardTitle className="text-lg">{student.firstName} {student.lastName}</CardTitle>
               <CardDescription>{student.playStyle} • {student.level}</CardDescription>
             </div>
           </div>

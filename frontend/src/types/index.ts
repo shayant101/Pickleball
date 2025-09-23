@@ -1,22 +1,29 @@
 export interface Student {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
-  playStyle: string; // Changed from 'instrument' to 'playStyle' for pickleball
+  playStyle: string;
   level: string;
   status: 'Active' | 'Inactive';
   joinDate: string;
-  lastSession: string; // Changed from 'lastLesson' to 'lastSession'
-  nextSession: string | null; // Changed from 'nextLesson' to 'nextSession'
-  totalSessions: number; // Changed from 'totalLessons' to 'totalSessions'
-  parentName: string | null;
-  parentEmail: string | null;
-  parentPhone: string | null;
+  lastSession: string | null;
+  nextSession: string | null;
+  totalSessions: number;
   address: string;
   notes: string;
   goals: string[];
-  avatar: string | null;
+  guardians?: Guardian[];
+}
+
+export interface Guardian {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  studentId: number;
 }
 
 export interface Session { // Changed from 'Lesson' to 'Session'
